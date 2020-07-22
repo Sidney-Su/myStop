@@ -6,7 +6,13 @@ import { Input } from 'element-ui'
 // 导入弹框提示组件
 import { Message } from 'element-ui'
 // 导入布局容器组件
-import { Container, Header, Aside, Main, Menu } from 'element-ui'
+import { Container, Header, Aside, Main } from 'element-ui'
+// 导入菜单组件
+import { Menu, Submenu, MenuItem } from 'element-ui'
+// 导入面包屑导航、卡片、栅格行列
+import { Breadcrumb, BreadcrumbItem, Card, Row, Col } from 'element-ui'
+// 导入表格和开关按钮 提示信息 分页 对话框 弹框
+import { Table, TableColumn, Switch, Tooltip, Pagination, Dialog, MessageBox } from 'element-ui'
 
 Vue.use(Button)
 Vue.use(Form)
@@ -17,6 +23,21 @@ Vue.use(Header)
 Vue.use(Aside)
 Vue.use(Main)
 Vue.use(Menu)
+Vue.use(Submenu)
+Vue.use(MenuItem)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Card)
+Vue.use(Row)
+Vue.use(Col)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Switch)
+Vue.use(Tooltip)
+Vue.use(Pagination)
+Vue.use(Dialog)
 
 // 将弹框组件挂载到Vue原型对象身上 这样就可以在所有Vue组件中通过this.$message(自定义的)进行弹框提示
-Vue.prototype.$message = Message
+Vue.prototype.$message = Message;
+// 将弹窗信息 挂载到Vue
+Vue.prototype.$confirm = MessageBox.confirm
