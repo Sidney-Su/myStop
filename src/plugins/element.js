@@ -13,6 +13,8 @@ import { Menu, Submenu, MenuItem } from 'element-ui'
 import { Breadcrumb, BreadcrumbItem, Card, Row, Col } from 'element-ui'
 // 导入表格和开关按钮 提示信息 分页 对话框 弹框
 import { Table, TableColumn, Switch, Tooltip, Pagination, Dialog, MessageBox } from 'element-ui'
+// 导入标签组件 树形 下拉框
+import { Tag, Tree, Select, Option } from 'element-ui'
 
 Vue.use(Button)
 Vue.use(Form)
@@ -36,6 +38,10 @@ Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Tag)
+Vue.use(Tree)
+Vue.use(Select)
+Vue.use(Option)
 
 // 将弹框组件挂载到Vue原型对象身上 这样就可以在所有Vue组件中通过this.$message(自定义的)进行弹框提示
 Vue.prototype.$message = Message;

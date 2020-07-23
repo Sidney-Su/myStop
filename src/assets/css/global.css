@@ -3,24 +3,26 @@
 html,
 body,
 #app {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* 设定最小宽度 避免出现窗口缩小时某些部件错位 */
+    min-width: 1280px;
 }
 
 
 /* 修改element-ui默认样式 最好也在这里改一下 */
 
 .el-breadcrumb {
-  margin-bottom: 15px;
-  font-size: 12px;
+    margin-bottom: 15px;
+    font-size: 12px;
 }
 
 .el-card {
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
 }
 
 .el-table {
-  margin-top: 15px;
-  font-size: 12px;
+    margin-top: 15px;
+    font-size: 12px;
 }
