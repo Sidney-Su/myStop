@@ -15,8 +15,8 @@ import { Breadcrumb, BreadcrumbItem, Card, Row, Col } from 'element-ui'
 import { Table, TableColumn, Switch, Tooltip, Pagination, Dialog, MessageBox } from 'element-ui'
 // 导入标签组件 树形 下拉框
 import { Tag, Tree, Select, Option } from 'element-ui'
-// 导入级联选择器
-import { Cascader } from 'element-ui'
+// 导入级联选择器 警告 tab页签
+import { Cascader, Alert, Tabs, TabPane } from 'element-ui'
 
 Vue.use(Button)
 Vue.use(Form)
@@ -45,6 +45,9 @@ Vue.use(Tree)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(Cascader)
+Vue.use(Alert)
+Vue.use(Tabs)
+Vue.use(TabPane)
 
 // 将弹框组件挂载到Vue原型对象身上 这样就可以在所有Vue组件中通过this.$message(自定义的)进行弹框提示
 Vue.prototype.$message = Message;
