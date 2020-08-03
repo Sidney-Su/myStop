@@ -17,6 +17,8 @@ import { Table, TableColumn, Switch, Tooltip, Pagination, Dialog, MessageBox } f
 import { Tag, Tree, Select, Option } from 'element-ui'
 // 导入级联选择器 警告 tab页签 步骤条 多选框 图片上传
 import { Cascader, Alert, Tabs, TabPane, Steps, Step, CheckboxGroup, Checkbox, Upload } from 'element-ui'
+// 导入时间线
+import { Timeline, TimelineItem } from 'element-ui'
 
 Vue.use(Button)
 Vue.use(Form)
@@ -53,6 +55,8 @@ Vue.use(Step)
 Vue.use(CheckboxGroup)
 Vue.use(Checkbox)
 Vue.use(Upload)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 
 // 将弹框组件挂载到Vue原型对象身上 这样就可以在所有Vue组件中通过this.$message(自定义的)进行弹框提示
 Vue.prototype.$message = Message;
