@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import './plugins/element.js'
+// import './plugins/element.js'
 
 // 导入字体图标
 import './assets/fonts/iconfont.css'
@@ -12,23 +12,32 @@ import TreeTable from 'vue-table-with-tree-grid'
 
 // 导入富文本编辑器(运行依赖)
 import VueQuillEditor from 'vue-quill-editor'
-// 导入富文本编辑器对应的样式
-import 'quill/dist/quill.core.css' // import styles
-import 'quill/dist/quill.snow.css' // for snow theme
-import 'quill/dist/quill.bubble.css' // for bubble theme
+// 导入富文本编辑器对应的样式 import导入的css样式也会打包到同一个文件 造成体积过大 可以直接外部导入到index.html中
 
 import axios from 'axios'
+
+// 项目优化 一、加载进度条
+// 1. 导入 NProgress 包对应的JS和CSS
+import NProgress from 'nprogress'
+
 // 配置请求的根路径
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/';
 // 通过 axios 请求拦截器添加 token，保证拥有获取数据的权限。
 // 请求拦截器 就相当于发送请求前的预处理 config是请求对象
 // 除了登录之外的所有操作都需要权限 只有添加了token才有权限操作
+// 2. 在 request (请求)拦截器中，展示进度条 NProgress.start()  如果触发了request拦截器 代表发起了网络请求 显示进度条
 axios.interceptors.request.use(config => {
+    NProgress.start();
     // console.log(config);
     // 为请求头对象，添加 Token 验证的 Authorization 字段
     config.headers.Authorization = window.sessionStorage.getItem('token');
     // 必须要返回config对象
     return config;
+});
+// 3. 在 response (响应)拦截器中，隐藏进度条 NProgress.done()  如果触发了response拦截器 代表结束了网络请求 隐藏进度条
+axios.interceptors.response.use(config => {
+    NProgress.done()
+    return config
 });
 // 将axios挂载到Vue的原型对象上 这样每个Vue组件可以通过this直接访问$http 从而发起axios请求
 Vue.prototype.$http = axios
